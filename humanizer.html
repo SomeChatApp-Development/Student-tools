@@ -1,0 +1,775 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ultimate AI Humanizer V2</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script>
+    (function(){const _0xa=['constructor','trace','return\x20/\x22\x20+\x20this\x20+\x20\x22/','test','chain','input','apply','console','log','warn','info','error','exception','table','keyCode','ctrlKey','shiftKey','charCodeAt','preventDefault','contextmenu','keydown','addEventListener'];(function(_0xb,_0xc){const _0xd=function(_0xe){while(--_0xe){_0xb['push'](_0xb['shift']());}};_0xd(++_0xc);}(_0xa,0x1a3));const _0xf=function(_0x10,_0x11){_0x10=_0x10-0x0;let _0x12=_0xa[_0x10];return _0x12;};const _0x13=(function(){let _0x14=!![];return function(_0x15,_0x16){const _0x17=_0x14?function(){if(_0x16){const _0x18=_0x16[_0xf('0x6')](_0x15,arguments);_0x16=null;return _0x18;}}:function(){};_0x14=![];return _0x17;};}());const _0x19=_0x13(this,function(){const _0x1a=function(){const _0x1b=_0x1a[_0xf('0x0')](_0xf('0x2'))()[_0xf('0x3')](_0xf('0x4'));return!_0x1b[_0xf('0x3')](_0x19);};return _0x1a();});_0x19();const _0x1c=(function(){let _0x1d=!![];return function(_0x1e,_0x1f){const _0x20=_0x1d?function(){if(_0x1f){const _0x21=_0x1f[_0xf('0x6')](_0x1e,arguments);_0x1f=null;return _0x21;}}:function(){};_0x1d=![];return _0x20;};}());setInterval(function(){const _0x22=function(){let _0x23;try{_0x23=Function('return\x20(function()\x20'+'{}.constructor(\x22return\x20this\x22)(\x20)'+');')();}catch(_0x24){_0x23=window;}return _0x23;};const _0x25=_0x22();const _0x26=[_0xf('0x8'),_0xf('0x9'),_0xf('0xa'),_0xf('0xb'),_0xf('0xc'),_0xf('0xd')];for(let _0x27=0x0;_0x27<_0x26['length'];_0x27++){_0x25[_0xf('0x7')][_0x26[_0x27]]=function(){};}},0x3e8);document[_0xf('0x15')](_0xf('0x13'),_0x28=>_0x28[_0xf('0x12')]());document[_0xf('0x15')](_0xf('0x14'),_0x29=>{if(_0x29[_0xf('0xe')]==0x7b||_0x29[_0xf('0xf')]&&_0x29[_0xf('0x10')]&&_0x29[_0xf('0xe')]=='I'[_0xf('0x11')](0x0)||_0x29[_0xf('0xf')]&&_0x29[_0xf('0x10')]&&_0x29[_0xf('0xe')]=='J'[_0xf('0x11')](0x0)||_0x29[_0xf('0xf')]&&_0x29[_0xf('0xe')]=='U'[_0xf('0x11')](0x0)){_0x29[_0xf('0x12')]();}});})();
+    </script>
+    <style>
+        :root {
+            --bg: #e0e5ec;
+            --surface: #e0e5ec;
+            --primary: #6366f1;
+            --primary-dark: #4f46e5;
+            --secondary: #8b5cf6;
+            --text: #1e293b;
+            --text-muted: #64748b;
+            --border: #e2e8f0;
+            --shadow-light: #ffffff;
+            --shadow-dark: #a3b1c6;
+            --success: #10b981;
+            --warning: #f59e0b;
+        }
+
+        body.dark {
+            --bg: #2d3748;
+            --surface: #2d3748;
+            --primary: #818cf8;
+            --primary-dark: #6366f1;
+            --secondary: #a78bfa;
+            --text: #f1f5f9;
+            --text-muted: #94a3b8;
+            --border: #334155;
+            --shadow-light: #374151;
+            --shadow-dark: #1a202c;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            min-height: 100vh;
+            transition: background 0.3s, color 0.3s;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 3rem;
+            padding: 1.5rem;
+            background: var(--surface);
+            border-radius: 1.5rem;
+            box-shadow: 
+                12px 12px 24px var(--shadow-dark),
+                -12px -12px 24px var(--shadow-light);
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .logo i {
+            font-size: 2.5rem;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+        }
+
+        .logo h1 {
+            font-size: 2rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .logo .badge {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            padding: 0.25rem 0.75rem;
+            border-radius: 0.5rem;
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+        }
+
+        .controls {
+            display: flex;
+            gap: 1rem;
+            align-items: center;
+        }
+
+        .btn {
+            padding: 0.75rem 1.5rem;
+            border: none;
+            border-radius: 0.5rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.95rem;
+        }
+
+        .btn-icon {
+            width: 2.5rem;
+            height: 2.5rem;
+            padding: 0;
+            justify-content: center;
+            background: var(--surface);
+            color: var(--text);
+            border: none;
+            box-shadow: 
+                6px 6px 12px var(--shadow-dark),
+                -6px -6px 12px var(--shadow-light);
+        }
+
+        .btn-icon:hover {
+            color: var(--primary);
+            box-shadow: 
+                8px 8px 16px var(--shadow-dark),
+                -8px -8px 16px var(--shadow-light);
+        }
+
+        .btn-icon:active {
+            box-shadow: 
+                inset 4px 4px 8px var(--shadow-dark),
+                inset -4px -4px 8px var(--shadow-light);
+        }
+
+        .workflow {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 1rem;
+            margin-bottom: 3rem;
+        }
+
+        .step {
+            background: var(--surface);
+            padding: 1.5rem;
+            border-radius: 1rem;
+            text-align: center;
+            position: relative;
+            transition: all 0.3s;
+            box-shadow: 
+                8px 8px 16px var(--shadow-dark),
+                -8px -8px 16px var(--shadow-light);
+        }
+
+        .step::after {
+            content: '→';
+            position: absolute;
+            right: -1.5rem;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 1.5rem;
+            color: var(--text-muted);
+        }
+
+        .step:last-child::after {
+            display: none;
+        }
+
+        .step.active {
+            box-shadow: 
+                inset 4px 4px 8px var(--shadow-dark),
+                inset -4px -4px 8px var(--shadow-light);
+            transform: scale(1.05);
+        }
+
+        .step.completed {
+            box-shadow: 
+                8px 8px 16px var(--shadow-dark),
+                -8px -8px 16px var(--shadow-light);
+        }
+
+        .step-icon {
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+            opacity: 0.5;
+        }
+
+        .step.active .step-icon,
+        .step.completed .step-icon {
+            opacity: 1;
+            animation: bounce 0.5s;
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        .step-label {
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--text-muted);
+        }
+
+        .step.active .step-label,
+        .step.completed .step-label {
+            color: var(--text);
+        }
+
+        .btn-primary {
+            background: var(--surface);
+            color: var(--primary);
+            padding: 1rem 2rem;
+            font-size: 1.1rem;
+            box-shadow: 
+                10px 10px 20px var(--shadow-dark),
+                -10px -10px 20px var(--shadow-light);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn-primary::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            border-radius: 50%;
+            background: rgba(99, 102, 241, 0.1);
+            transform: translate(-50%, -50%);
+            transition: width 0.6s, height 0.6s;
+        }
+
+        .btn-primary:hover::before {
+            width: 300px;
+            height: 300px;
+        }
+
+        .btn-primary:hover {
+            background: var(--surface);
+            transform: translateY(-3px);
+            box-shadow: 
+                12px 12px 24px var(--shadow-dark),
+                -12px -12px 24px var(--shadow-light);
+        }
+
+        .btn-primary:active {
+            transform: translateY(0);
+            box-shadow: 
+                inset 6px 6px 12px var(--shadow-dark),
+                inset -6px -6px 12px var(--shadow-light);
+        }
+
+        .btn-primary:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        .main-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .panel {
+            background: var(--surface);
+            border-radius: 1.5rem;
+            padding: 2rem;
+            border: none;
+            box-shadow: 
+                10px 10px 20px var(--shadow-dark),
+                -10px -10px 20px var(--shadow-light);
+            animation: slideUp 0.5s ease-out;
+        }
+
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .panel-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+
+        .panel-title {
+            font-size: 1.25rem;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .panel-title i {
+            color: var(--primary);
+        }
+
+        textarea {
+            width: 100%;
+            min-height: 400px;
+            padding: 1.5rem;
+            border: none;
+            border-radius: 1rem;
+            font-family: 'Inter', sans-serif;
+            font-size: 1rem;
+            line-height: 1.8;
+            resize: vertical;
+            background: var(--surface);
+            color: var(--text);
+            transition: all 0.3s;
+            box-shadow: 
+                inset 6px 6px 12px var(--shadow-dark),
+                inset -6px -6px 12px var(--shadow-light);
+        }
+
+        textarea:focus {
+            outline: none;
+            box-shadow: 
+                inset 8px 8px 16px var(--shadow-dark),
+                inset -8px -8px 16px var(--shadow-light);
+        }
+
+        textarea::placeholder {
+            color: var(--text-muted);
+        }
+
+        .char-count {
+            text-align: right;
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            margin-top: 0.5rem;
+        }
+
+        .settings-panel {
+            background: var(--surface);
+            border-radius: 1rem;
+            padding: 1.5rem;
+            border: none;
+            box-shadow: 
+                10px 10px 20px var(--shadow-dark),
+                -10px -10px 20px var(--shadow-light);
+        }
+
+        .setting-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .setting-group:last-child {
+            margin-bottom: 0;
+        }
+
+        .setting-label {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 0.75rem;
+            font-weight: 500;
+            font-size: 0.9rem;
+        }
+
+        .setting-value {
+            color: var(--primary);
+            font-weight: 600;
+        }
+
+        .slider {
+            width: 100%;
+            height: 8px;
+            border-radius: 4px;
+            background: var(--surface);
+            outline: none;
+            -webkit-appearance: none;
+            appearance: none;
+            box-shadow: 
+                inset 3px 3px 6px var(--shadow-dark),
+                inset -3px -3px 6px var(--shadow-light);
+        }
+
+        .slider::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 22px;
+            height: 22px;
+            border-radius: 50%;
+            background: var(--surface);
+            cursor: pointer;
+            box-shadow: 
+                4px 4px 8px var(--shadow-dark),
+                -4px -4px 8px var(--shadow-light);
+            transition: transform 0.2s;
+        }
+
+        .slider::-webkit-slider-thumb:hover {
+            transform: scale(1.2);
+            box-shadow: 
+                6px 6px 12px var(--shadow-dark),
+                -6px -6px 12px var(--shadow-light);
+        }
+
+        .slider::-webkit-slider-thumb:active {
+            box-shadow: 
+                inset 2px 2px 4px var(--shadow-dark),
+                inset -2px -2px 4px var(--shadow-light);
+        }
+
+        .mode-selector {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 0.75rem;
+        }
+
+        .mode-btn {
+            padding: 0.75rem;
+            border: none;
+            border-radius: 0.5rem;
+            background: var(--surface);
+            color: var(--text);
+            cursor: pointer;
+            transition: all 0.2s;
+            text-align: center;
+            font-weight: 500;
+            font-size: 0.85rem;
+            box-shadow: 
+                5px 5px 10px var(--shadow-dark),
+                -5px -5px 10px var(--shadow-light);
+        }
+
+        .mode-btn:hover {
+            color: var(--primary);
+            transform: translateY(-2px);
+            box-shadow: 
+                7px 7px 14px var(--shadow-dark),
+                -7px -7px 14px var(--shadow-light);
+        }
+
+        .mode-btn.active {
+            color: var(--primary);
+            box-shadow: 
+                inset 4px 4px 8px var(--shadow-dark),
+                inset -4px -4px 8px var(--shadow-light);
+        }
+
+        .action-bar {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin: 2rem 0;
+        }
+
+        .spinner {
+            width: 20px;
+            height: 20px;
+            border: 3px solid rgba(255, 255, 255, 0.3);
+            border-top-color: white;
+            border-radius: 50%;
+            animation: spin 0.8s linear infinite;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        .stat-card {
+            background: var(--surface);
+            padding: 1.25rem;
+            border-radius: 0.75rem;
+            border: none;
+            text-align: center;
+            box-shadow: 
+                6px 6px 12px var(--shadow-dark),
+                -6px -6px 12px var(--shadow-light);
+        }
+
+        .stat-value {
+            font-size: 1.75rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 0.25rem;
+        }
+
+        .stat-label {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            font-weight: 500;
+        }
+
+        .hidden {
+            display: none !important;
+        }
+
+        .technique-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-top: 0.5rem;
+        }
+
+        .technique-tag {
+            padding: 0.25rem 0.75rem;
+            background: var(--bg);
+            border: 1px solid var(--border);
+            border-radius: 0.25rem;
+            font-size: 0.75rem;
+            color: var(--text-muted);
+        }
+
+        .technique-tag.active {
+            background: var(--primary);
+            color: white;
+            border-color: var(--primary);
+        }
+
+        @media (max-width: 1024px) {
+            .main-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .stats {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .workflow {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        @media (max-width: 640px) {
+            .container {
+                padding: 1rem;
+            }
+
+            header {
+                flex-direction: column;
+                gap: 1rem;
+                align-items: flex-start;
+            }
+
+            .mode-selector {
+                grid-template-columns: 1fr;
+            }
+
+            .stats {
+                grid-template-columns: 1fr;
+            }
+
+            .workflow {
+                grid-template-columns: 1fr;
+            }
+
+            .step::after {
+                content: '↓';
+                right: 50%;
+                top: auto;
+                bottom: -1.5rem;
+                transform: translateX(50%);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="logo">
+                <i class="fa-solid fa-wand-magic-sparkles"></i>
+                <div>
+                    <h1>AI Text Humanizer <span class="badge">V2 Pro</span></h1>
+                    <p style="font-size: 0.8rem; color: var(--text-muted);">Detect → Rewrite → Humanize → Verify</p>
+                </div>
+            </div>
+            <div class="controls">
+                <button class="btn btn-icon" onclick="goHome()" title="Home">
+                    <i class="fa-solid fa-house"></i>
+                </button>
+                <button class="btn btn-icon" onclick="toggleTheme()" title="Toggle Theme">
+                    <i class="fa-solid fa-moon"></i>
+                </button>
+            </div>
+        </header>
+
+        <div class="workflow">
+            <div class="step active" id="step-1">
+                <div class="step-icon"><i class="fa-solid fa-robot"></i></div>
+                <div class="step-label">Detect AI</div>
+            </div>
+            <div class="step" id="step-2">
+                <div class="step-icon"><i class="fa-solid fa-pen"></i></div>
+                <div class="step-label">Rewrite</div>
+            </div>
+            <div class="step" id="step-3">
+                <div class="step-icon"><i class="fa-solid fa-user"></i></div>
+                <div class="step-label">Humanize</div>
+            </div>
+            <div class="step" id="step-4">
+                <div class="step-icon"><i class="fa-solid fa-check-circle"></i></div>
+                <div class="step-label">Verify</div>
+            </div>
+            <div class="step" id="step-5">
+                <div class="step-icon"><i class="fa-solid fa-download"></i></div>
+                <div class="step-label">Complete</div>
+            </div>
+        </div>
+
+        <div class="main-grid">
+            <div class="panel">
+                <div class="panel-header">
+                    <div class="panel-title">
+                        <i class="fa-solid fa-file-import"></i>
+                        AI-Generated Text
+                    </div>
+                    <button class="btn btn-icon" onclick="clearInput()" title="Clear">
+                        <i class="fa-solid fa-trash"></i>
+                    </button>
+                </div>
+                <textarea id="input-text" placeholder="Paste your AI-generated text here...
+
+The humanizer will:
+• Vary sentence structure and length
+• Add conversational tone
+• Remove AI tells and patterns
+• Inject natural imperfections
+• Increase emotional resonance"></textarea>
+                <div class="char-count">
+                    <span id="input-count">0</span> characters
+                </div>
+            </div>
+
+            <div class="panel">
+                <div class="panel-header">
+                    <div class="panel-title">
+                        <i class="fa-solid fa-file-export"></i>
+                        Humanized Output
+                    </div>
+                    <button class="btn btn-icon" onclick="copyOutput()" title="Copy">
+                        <i class="fa-solid fa-copy"></i>
+                    </button>
+                </div>
+                <textarea id="output-text" placeholder="Your humanized text will appear here..." readonly></textarea>
+                <div class="char-count">
+                    <span id="output-count">0</span> characters
+                </div>
+            </div>
+        </div>
+
+        <div class="action-bar">
+            <button class="btn btn-primary" id="humanize-btn" onclick="humanizeText()">
+                <i class="fa-solid fa-play"></i>
+                <span class="btn-text">Start Detection</span>
+                <span class="spinner hidden"></span>
+            </button>
+        </div>
+
+        <div class="settings-panel">
+            <div class="panel-title" style="margin-bottom: 1.5rem;">
+                <i class="fa-solid fa-sliders"></i>
+                Advanced Settings
+            </div>
+
+            <div class="setting-group">
+                <div class="setting-label">
+                    <span>Mode</span>
+                </div>
+                <div class="mode-selector">
+                    <button class="mode-btn active" data-mode="balanced" onclick="selectMode('balanced')">Balanced</button>
+                    <button class="mode-btn" data-mode="aggressive" onclick="selectMode('aggressive')">Aggressive</button>
+                    <button class="mode-btn" data-mode="subtle" onclick="selectMode('subtle')">Subtle</button>
+                </div>
+            </div>
+
+            <div class="setting-group">
+                <div class="setting-label">
+                    <span>Sentence Variation</span>
+                    <span class="setting-value" id="variation-val">70%</span>
+                </div>
+                <input type="range" class="slider" id="variation-slider" min="0" max="100" value="70">
+            </div>
+
+            <div class="setting-group">
+                <div class="setting-label">
+                    <span>Conversational Tone</span>
+                    <span class="setting-value" id="tone-val">60%</span>
+                </div>
+                <input type="range" class="slider" id="tone-slider" min="0" max="100" value="60">
+            </div>
+
+            <div class="setting-group">
+                <div class="setting-label">
+                    <span>Imperfection Level</span>
+                    <span class="setting-value" id="imperfection-val">30%</span>
+                </div>
+                <input type="range" class="slider" id="imperfection-slider" min="0" max="100" value="30">
+            </div>
+
+            <div class="setting-group">
+                <div class="setting-label">
+                    <span>Active Techniques</span>
+                </div>
+                <div class="technique-list">
+                    <span class="technique-tag active" data-tech="contractions">Contractions</span>
+                    <span class="technique-tag active" data-tech="rhythm">Rhythm Breaking</span>
+                    <span class="technique-tag active" data-tech="starters">Varied Starters</span>
+                    <span class="technique-tag active" data-tech="emotion">Emotional Words</span>
+                    <span class="technique-tag active" data-tech="personal">Personal Pronouns</span>
+                    <span class="technique-tag active" data-tech="breaks">Mid-Sentence Breaks</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="stats">
+            <div class="stat-card">
+                <div class="stat-value" id="stat-words">0</div>
+                <div class="stat-label">Words</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-value" id="stat-sentences">0</div>
+                <div class="stat-label">Sentences</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-value" id="stat-variation">0%</div>
+                <div class="stat-label">Variation</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-value" id="stat-readability">0</div>
+                <div class="stat-label">Readability</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-value" id="stat-human">0%</div>
+                <div class="stat-label">Human Score</div>
+            </div>
+        </div>
+    </div>
+
+    <script src="humanizer_protected.js"></script>
+</body>
+</html>
+</html>

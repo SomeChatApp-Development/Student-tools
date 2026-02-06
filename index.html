@@ -1,0 +1,641 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Tools Hub - All-in-One Academic Suite</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <script>
+    (function(){const _0xa=['constructor','trace','return\x20/\x22\x20+\x20this\x20+\x20\x22/','test','chain','input','apply','console','log','warn','info','error','exception','table','keyCode','ctrlKey','shiftKey','charCodeAt','preventDefault','contextmenu','keydown','addEventListener'];(function(_0xb,_0xc){const _0xd=function(_0xe){while(--_0xe){_0xb['push'](_0xb['shift']());}};_0xd(++_0xc);}(_0xa,0x1a3));const _0xf=function(_0x10,_0x11){_0x10=_0x10-0x0;let _0x12=_0xa[_0x10];return _0x12;};const _0x13=(function(){let _0x14=!![];return function(_0x15,_0x16){const _0x17=_0x14?function(){if(_0x16){const _0x18=_0x16[_0xf('0x6')](_0x15,arguments);_0x16=null;return _0x18;}}:function(){};_0x14=![];return _0x17;};}());const _0x19=_0x13(this,function(){const _0x1a=function(){const _0x1b=_0x1a[_0xf('0x0')](_0xf('0x2'))()[_0xf('0x3')](_0xf('0x4'));return!_0x1b[_0xf('0x3')](_0x19);};return _0x1a();});_0x19();const _0x1c=(function(){let _0x1d=!![];return function(_0x1e,_0x1f){const _0x20=_0x1d?function(){if(_0x1f){const _0x21=_0x1f[_0xf('0x6')](_0x1e,arguments);_0x1f=null;return _0x21;}}:function(){};_0x1d=![];return _0x20;};}());setInterval(function(){const _0x22=function(){let _0x23;try{_0x23=Function('return\x20(function()\x20'+'{}.constructor(\x22return\x20this\x22)(\x20)'+');')();}catch(_0x24){_0x23=window;}return _0x23;};const _0x25=_0x22();const _0x26=[_0xf('0x8'),_0xf('0x9'),_0xf('0xa'),_0xf('0xb'),_0xf('0xc'),_0xf('0xd')];for(let _0x27=0x0;_0x27<_0x26['length'];_0x27++){_0x25[_0xf('0x7')][_0x26[_0x27]]=function(){};}},0x3e8);document[_0xf('0x15')](_0xf('0x13'),_0x28=>_0x28[_0xf('0x12')]());document[_0xf('0x15')](_0xf('0x14'),_0x29=>{if(_0x29[_0xf('0xe')]==0x7b||_0x29[_0xf('0xf')]&&_0x29[_0xf('0x10')]&&_0x29[_0xf('0xe')]=='I'[_0xf('0x11')](0x0)||_0x29[_0xf('0xf')]&&_0x29[_0xf('0x10')]&&_0x29[_0xf('0xe')]=='J'[_0xf('0x11')](0x0)||_0x29[_0xf('0xf')]&&_0x29[_0xf('0xe')]=='U'[_0xf('0x11')](0x0)){_0x29[_0xf('0x12')]();}});})();
+    </script>
+    <style>
+        :root {
+            --bg: #e0e5ec;
+            --surface: #e0e5ec;
+            --primary: #6366f1;
+            --primary-dark: #4f46e5;
+            --secondary: #8b5cf6;
+            --success: #10b981;
+            --warning: #f59e0b;
+            --danger: #ef4444;
+            --text: #1e293b;
+            --text-muted: #64748b;
+            --shadow-light: #ffffff;
+            --shadow-dark: #a3b1c6;
+        }
+
+        body.dark {
+            --bg: #2d3748;
+            --surface: #2d3748;
+            --primary: #818cf8;
+            --primary-dark: #6366f1;
+            --secondary: #a78bfa;
+            --text: #f1f5f9;
+            --text-muted: #94a3b8;
+            --shadow-light: #374151;
+            --shadow-dark: #1a202c;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            min-height: 100vh;
+            transition: background 0.3s, color 0.3s;
+        }
+
+        .container {
+            max-width: 1600px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 3rem;
+            padding: 1.5rem;
+            background: var(--surface);
+            border-radius: 1.5rem;
+            box-shadow: 
+                12px 12px 24px var(--shadow-dark),
+                -12px -12px 24px var(--shadow-light);
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .logo i {
+            font-size: 2.5rem;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+        }
+
+        .logo h1 {
+            font-size: 2rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .logo .badge {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            padding: 0.25rem 0.75rem;
+            border-radius: 0.5rem;
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+        }
+
+        .controls {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .btn-icon {
+            width: 3rem;
+            height: 3rem;
+            border-radius: 50%;
+            background: var(--surface);
+            color: var(--text);
+            border: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s;
+            box-shadow: 
+                6px 6px 12px var(--shadow-dark),
+                -6px -6px 12px var(--shadow-light);
+        }
+
+        .btn-icon:hover {
+            color: var(--primary);
+            box-shadow: 
+                8px 8px 16px var(--shadow-dark),
+                -8px -8px 16px var(--shadow-light);
+        }
+
+        .btn-icon:active {
+            box-shadow: 
+                inset 4px 4px 8px var(--shadow-dark),
+                inset -4px -4px 8px var(--shadow-light);
+        }
+
+        .search-bar {
+            margin-bottom: 3rem;
+            position: relative;
+        }
+
+        .search-input {
+            width: 100%;
+            padding: 1.5rem 1.5rem 1.5rem 4rem;
+            border: none;
+            border-radius: 1.5rem;
+            font-size: 1.1rem;
+            background: var(--surface);
+            color: var(--text);
+            box-shadow: 
+                inset 6px 6px 12px var(--shadow-dark),
+                inset -6px -6px 12px var(--shadow-light);
+            transition: all 0.3s;
+        }
+
+        .search-input:focus {
+            outline: none;
+            box-shadow: 
+                inset 8px 8px 16px var(--shadow-dark),
+                inset -8px -8px 16px var(--shadow-light);
+        }
+
+        .search-icon {
+            position: absolute;
+            left: 1.5rem;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--text-muted);
+            font-size: 1.2rem;
+        }
+
+        .category-section {
+            margin-bottom: 4rem;
+        }
+
+        .category-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .category-icon {
+            width: 3.5rem;
+            height: 3.5rem;
+            border-radius: 1rem;
+            background: var(--surface);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            color: var(--primary);
+            box-shadow: 
+                6px 6px 12px var(--shadow-dark),
+                -6px -6px 12px var(--shadow-light);
+        }
+
+        .category-title {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--text);
+        }
+
+        .tools-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 2rem;
+        }
+
+        .tool-card {
+            background: var(--surface);
+            border-radius: 1.5rem;
+            padding: 2rem;
+            cursor: pointer;
+            transition: all 0.3s;
+            box-shadow: 
+                10px 10px 20px var(--shadow-dark),
+                -10px -10px 20px var(--shadow-light);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .tool-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 
+                15px 15px 30px var(--shadow-dark),
+                -15px -15px 30px var(--shadow-light);
+        }
+
+        .tool-card:active {
+            transform: translateY(0);
+            box-shadow: 
+                inset 6px 6px 12px var(--shadow-dark),
+                inset -6px -6px 12px var(--shadow-light);
+        }
+
+        .tool-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .tool-icon {
+            width: 3rem;
+            height: 3rem;
+            border-radius: 0.75rem;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.3rem;
+        }
+
+        .tool-name {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--text);
+        }
+
+        .tool-desc {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            line-height: 1.6;
+            margin-bottom: 1rem;
+        }
+
+        .tool-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .tag {
+            padding: 0.25rem 0.75rem;
+            background: var(--surface);
+            border-radius: 0.5rem;
+            font-size: 0.75rem;
+            color: var(--primary);
+            font-weight: 600;
+            box-shadow: 
+                3px 3px 6px var(--shadow-dark),
+                -3px -3px 6px var(--shadow-light);
+        }
+
+        .badge-new {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background: var(--success);
+            color: white;
+            padding: 0.25rem 0.75rem;
+            border-radius: 0.5rem;
+            font-size: 0.7rem;
+            font-weight: 700;
+            text-transform: uppercase;
+        }
+
+        .badge-popular {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background: var(--warning);
+            color: white;
+            padding: 0.25rem 0.75rem;
+            border-radius: 0.5rem;
+            font-size: 0.7rem;
+            font-weight: 700;
+            text-transform: uppercase;
+        }
+
+        .stats-bar {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1.5rem;
+            margin-bottom: 3rem;
+        }
+
+        .stat-card {
+            background: var(--surface);
+            padding: 1.5rem;
+            border-radius: 1rem;
+            text-align: center;
+            box-shadow: 
+                8px 8px 16px var(--shadow-dark),
+                -8px -8px 16px var(--shadow-light);
+        }
+
+        .stat-value {
+            font-size: 2rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-label {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            font-weight: 600;
+        }
+
+        @media (max-width: 1024px) {
+            .tools-grid {
+                grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            }
+
+            .stats-bar {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 640px) {
+            .container {
+                padding: 1rem;
+            }
+
+            header {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .stats-bar {
+                grid-template-columns: 1fr;
+            }
+
+            .tools-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* MIT License Popup */
+        .license-popup {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 10000;
+            backdrop-filter: blur(5px);
+            animation: fadeIn 0.3s ease-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .license-popup.hidden {
+            display: none;
+        }
+
+        .license-content {
+            background: var(--surface);
+            border-radius: 1.5rem;
+            padding: 2.5rem;
+            max-width: 600px;
+            max-height: 80vh;
+            overflow-y: auto;
+            box-shadow: 
+                20px 20px 40px var(--shadow-dark),
+                -20px -20px 40px var(--shadow-light);
+            animation: slideUp 0.4s ease-out;
+        }
+
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .license-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+            padding-bottom: 1rem;
+            border-bottom: 2px solid var(--shadow-dark);
+        }
+
+        .license-header i {
+            font-size: 2rem;
+            color: var(--primary);
+        }
+
+        .license-header h3 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--text);
+        }
+
+        .license-body {
+            color: var(--text);
+            font-size: 0.9rem;
+            line-height: 1.6;
+            margin-bottom: 2rem;
+        }
+
+        .btn-accept {
+            width: 100%;
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 1rem;
+            background: var(--surface);
+            color: var(--primary);
+            font-size: 1.1rem;
+            font-weight: 700;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.75rem;
+            transition: all 0.3s;
+            box-shadow: 
+                10px 10px 20px var(--shadow-dark),
+                -10px -10px 20px var(--shadow-light);
+        }
+
+        .btn-accept:hover {
+            transform: translateY(-3px);
+            box-shadow: 
+                12px 12px 24px var(--shadow-dark),
+                -12px -12px 24px var(--shadow-light);
+        }
+
+        .btn-accept:active {
+            transform: translateY(0);
+            box-shadow: 
+                inset 6px 6px 12px var(--shadow-dark),
+                inset -6px -6px 12px var(--shadow-light);
+        }
+
+        @media (max-width: 640px) {
+            .license-content {
+                margin: 1rem;
+                padding: 1.5rem;
+                max-height: 90vh;
+            }
+
+            .license-header h3 {
+                font-size: 1.25rem;
+            }
+
+            .license-body {
+                font-size: 0.85rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="logo">
+                <i class="fa-solid fa-graduation-cap"></i>
+                <div>
+                    <h1>Student Tools Hub <span class="badge">Pro</span></h1>
+                    <p style="font-size: 0.85rem; color: var(--text-muted);">All-in-One Academic Suite</p>
+                </div>
+            </div>
+            <div class="controls">
+                <button class="btn-icon" onclick="goHome()" title="Home">
+                    <i class="fa-solid fa-house"></i>
+                </button>
+                <button class="btn-icon" onclick="toggleTheme()" title="Toggle Theme">
+                    <i class="fa-solid fa-moon"></i>
+                </button>
+            </div>
+        </header>
+
+        <div class="stats-bar">
+            <div class="stat-card">
+                <div class="stat-value">50+</div>
+                <div class="stat-label">Tools Available</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-value">100%</div>
+                <div class="stat-label">Free to Use</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-value">24/7</div>
+                <div class="stat-label">Access</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-value">0</div>
+                <div class="stat-label">Ads</div>
+            </div>
+        </div>
+
+        <div class="search-bar">
+            <i class="fa-solid fa-magnifying-glass search-icon"></i>
+            <input type="text" class="search-input" id="search-input" placeholder="Search for tools..." oninput="searchTools()">
+        </div>
+
+        <div class="category-section" data-category="writing">
+            <div class="category-header">
+                <div class="category-icon">
+                    <i class="fa-solid fa-pen-fancy"></i>
+                </div>
+                <h2 class="category-title">Writing & Editing</h2>
+            </div>
+            <div class="tools-grid" id="writing-tools"></div>
+        </div>
+
+        <div class="category-section" data-category="research">
+            <div class="category-header">
+                <div class="category-icon">
+                    <i class="fa-solid fa-book-open"></i>
+                </div>
+                <h2 class="category-title">Research & Organization</h2>
+            </div>
+            <div class="tools-grid" id="research-tools"></div>
+        </div>
+
+        <div class="category-section" data-category="productivity">
+            <div class="category-header">
+                <div class="category-icon">
+                    <i class="fa-solid fa-clock"></i>
+                </div>
+                <h2 class="category-title">Productivity & Planning</h2>
+            </div>
+            <div class="tools-grid" id="productivity-tools"></div>
+        </div>
+
+        <div class="category-section" data-category="ai">
+            <div class="category-header">
+                <div class="category-icon">
+                    <i class="fa-solid fa-robot"></i>
+                </div>
+                <h2 class="category-title">AI Writing Assistants</h2>
+            </div>
+            <div class="tools-grid" id="ai-tools"></div>
+        </div>
+
+        <div class="category-section" data-category="subject">
+            <div class="category-header">
+                <div class="category-icon">
+                    <i class="fa-solid fa-flask"></i>
+                </div>
+                <h2 class="category-title">Subject-Specific Tools</h2>
+            </div>
+            <div class="tools-grid" id="subject-tools"></div>
+        </div>
+    </div>
+
+    <!-- MIT License Cookie Consent -->
+    <div id="license-popup" class="license-popup hidden">
+        <div class="license-content">
+            <div class="license-header">
+                <i class="fa-solid fa-scale-balanced"></i>
+                <h3>MIT License</h3>
+            </div>
+            <div class="license-body">
+                <p style="margin-bottom: 1rem; font-weight: 600;">Copyright (c) 2026 Juwon Jung</p>
+                <p style="margin-bottom: 0.75rem;">Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:</p>
+                <p style="margin-bottom: 0.75rem;">The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.</p>
+                <p style="margin-bottom: 1rem;">THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.</p>
+            </div>
+            <button class="btn-accept" onclick="acceptLicense()">
+                <i class="fa-solid fa-check"></i> I Accept
+            </button>
+        </div>
+    </div>
+
+    <script src="student-tools_protected.js?v=1770317388"></script>
+    <script>
+        function acceptLicense() {
+            localStorage.setItem('mitLicenseAccepted', 'true');
+            document.getElementById('license-popup').classList.add('hidden');
+        }
+
+        window.addEventListener('load', function() {
+            const accepted = localStorage.getItem('mitLicenseAccepted');
+            if (!accepted) {
+                document.getElementById('license-popup').classList.remove('hidden');
+            }
+        });
+    </script>
+</body>
+</html>
